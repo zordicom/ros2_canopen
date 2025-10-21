@@ -30,6 +30,7 @@
 #include "rclcpp/rclcpp.hpp"
 
 #include "canopen_402_driver/default_homing_mode.hpp"
+#include "canopen_402_driver/n5_homing_mode.hpp"
 #include "canopen_402_driver/mode_forward_helper.hpp"
 #include "canopen_402_driver/profiled_position_mode.hpp"
 #include "canopen_base_driver/diagnostic_collector.hpp"
@@ -189,7 +190,7 @@ public:
     registerMode<VelocityMode>(MotorBase::Velocity, driver);
     registerMode<ProfiledVelocityMode>(MotorBase::Profiled_Velocity, driver);
     registerMode<ProfiledTorqueMode>(MotorBase::Profiled_Torque, driver);
-    registerMode<DefaultHomingMode>(MotorBase::Homing, driver, homing_timeout_seconds_);
+    registerMode<N5HomingMode>(MotorBase::Homing, driver, homing_timeout_seconds_);
     registerMode<InterpolatedPositionMode>(MotorBase::Interpolated_Position, driver);
     registerMode<CyclicSynchronousPositionMode>(MotorBase::Cyclic_Synchronous_Position, driver);
     registerMode<CyclicSynchronousVelocityMode>(MotorBase::Cyclic_Synchronous_Velocity, driver);

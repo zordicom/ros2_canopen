@@ -26,8 +26,11 @@ namespace ros2_canopen
 
 class DefaultHomingMode : public HomingMode
 {
-  const uint16_t index = 0x6098;
+protected:
   std::shared_ptr<LelyDriverBridge> driver;
+
+private:
+  const uint16_t index = 0x6098;
 
   std::atomic<bool> execute_;
 

@@ -35,6 +35,7 @@ add_library(lely_motion_controller_bridge
   src/command.cpp
   src/state.cpp
   src/default_homing_mode.cpp
+  src/n5_homing_mode.cpp
 )
 target_compile_features(lely_motion_controller_bridge PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 target_compile_options(lely_motion_controller_bridge PUBLIC -Wl,--no-undefined)
