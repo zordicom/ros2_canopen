@@ -63,7 +63,7 @@ bool N5HomingMode::executeHoming()
   std::cout << "N5HomingMode: Motor not homed, proceeding with homing sequence" << std::endl;
 
   // Step 1: Configure limit switch behavior for homing (ignore limits)
-  std::cout << "N5HomingMode: Setting limit behavior to " << (int)homing_limit_value_
+  std::cout << "N5HomingMode: Setting limit behavior to " << std::dec << homing_limit_value_
             << " for homing" << std::endl;
 
   bool write_success = driver->sync_sdo_write_typed<int16_t>(
@@ -85,7 +85,7 @@ bool N5HomingMode::executeHoming()
 
   // Step 3: ALWAYS restore safe limit switch behavior for normal operation (error on limit)
   // This must happen regardless of homing success for safety
-  std::cout << "N5HomingMode: Setting limit behavior to " << (int)operational_limit_value_
+  std::cout << "N5HomingMode: Setting limit behavior to " << std::dec << operational_limit_value_
             << " for normal operation" << std::endl;
 
   bool restore_success = driver->sync_sdo_write_typed<int16_t>(
