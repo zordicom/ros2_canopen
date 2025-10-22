@@ -44,7 +44,7 @@ bool N5HomingMode::executeHoming()
                 << statusword << std::dec << "), skipping homing sequence" << std::endl;
 
       // Still need to ensure safe limit behavior is set
-      bool restore_success = driver->sync_sdo_write_typed<uint8_t>(
+      bool restore_success = driver->sync_sdo_write_typed<int16_t>(
         limit_behavior_index_,
         0,
         operational_limit_value_,
@@ -66,7 +66,7 @@ bool N5HomingMode::executeHoming()
   std::cout << "N5HomingMode: Setting limit behavior to " << (int)homing_limit_value_
             << " for homing" << std::endl;
 
-  bool write_success = driver->sync_sdo_write_typed<int8_t>(
+  bool write_success = driver->sync_sdo_write_typed<int16_t>(
     limit_behavior_index_,
     0,
     homing_limit_value_,
@@ -88,7 +88,7 @@ bool N5HomingMode::executeHoming()
   std::cout << "N5HomingMode: Setting limit behavior to " << (int)operational_limit_value_
             << " for normal operation" << std::endl;
 
-  bool restore_success = driver->sync_sdo_write_typed<uint8_t>(
+  bool restore_success = driver->sync_sdo_write_typed<int16_t>(
     limit_behavior_index_,
     0,
     operational_limit_value_,

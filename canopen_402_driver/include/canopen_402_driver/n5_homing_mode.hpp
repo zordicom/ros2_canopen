@@ -36,8 +36,8 @@ class N5HomingMode : public DefaultHomingMode
 {
 private:
   const uint16_t limit_behavior_index_ = 0x3701;  // "Behavior upon reaching limit switch"
-  const int8_t homing_limit_value_ = -1;          // Ignore limits during homing
-  const uint8_t operational_limit_value_ = 6;     // Error on limit during operation
+  const int16_t homing_limit_value_ = -1;         // Ignore limits during homing
+  const int16_t operational_limit_value_ = 6;     // Error on limit during operation
 
 public:
   N5HomingMode(
